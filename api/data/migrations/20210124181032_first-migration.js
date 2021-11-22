@@ -6,6 +6,32 @@ exports.up = async (knex) => {
       users.string('password', 200).notNullable()
       users.timestamps(false, true)
     })
+    .createTable("pages", (pages) => {
+      pages.increments("page_id");
+      pages.string("text", 1500).notNullable();
+      pages
+        .integer("user_id")
+        .unsigned()
+        .notNullable()
+        .references("user_id")
+        .inTable("users")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
+    })
+    .createTable("options", (options) => {
+      options.increments("option_id");
+      options.string("text", 60).notNullable();
+      options.string("link_id", 120).notNullable();//link to next page_id
+      options
+        .integer("page_id")
+        .unsigned()
+        .notNullable()
+        .references("page_id")
+        .inTable("pages")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
+
+    })
 }
 
 exports.down = async (knex) => {

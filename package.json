@@ -1,5 +1,5 @@
 {
-  "name": "build-week-scaffolding-node",
+  "name": "f2d0termianl",
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
@@ -7,10 +7,10 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
-    "migrateh": "heroku run knex migrate:latest -a YOUR_HEROKU_APP_NAME",
-    "rollbackh": "heroku run knex migrate:rollback -a YOUR_HEROKU_APP_NAME",
-    "databaseh": "heroku pg:psql -a YOUR_HEROKU_APP_NAME",
-    "seedh": "heroku run knex seed:run -a YOUR_HEROKU_APP_NAME",
+    "migrateh": "heroku run knex migrate:latest -a f2d20terminal",
+    "rollbackh": "heroku run knex migrate:rollback -a f2d20terminal",
+    "databaseh": "heroku pg:psql -a f2d20terminal",
+    "seedh": "heroku run knex seed:run -a f2d20terminal",
     "test": "cross-env NODE_ENV=testing jest --verbose --runInBand",
     "deploy": "git push heroku main"
   },
