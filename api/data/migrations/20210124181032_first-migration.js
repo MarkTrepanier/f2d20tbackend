@@ -8,6 +8,7 @@ exports.up = async (knex) => {
     })
     .createTable("pages", (pages) => {
       pages.increments("page_id");
+      pages.string("header", 1500)
       pages.string("text", 1500).notNullable();
       pages
         .integer("user_id")
@@ -35,5 +36,5 @@ exports.up = async (knex) => {
 }
 
 exports.down = async (knex) => {
-  await knex.schema.dropTableIfExists('users')
+  await knex.schema.dropTableIfExists('options').dropTableIfExists('pages').dropTableIfExists('users')
 }
